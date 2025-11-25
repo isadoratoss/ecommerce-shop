@@ -2,6 +2,7 @@ import { Route,Routes } from "react-router-dom"
 import { ProductListPage } from "./pages/product-list-page"
 import { ProductDetail } from "./cases/products/components/product-detail"
 import { ProductDetailPage } from "./pages/product-detail.page"
+import { CartPage } from "./pages/cart-page"
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ProductListPage />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
           
         </div>
