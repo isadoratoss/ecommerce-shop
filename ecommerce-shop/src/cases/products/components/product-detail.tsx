@@ -5,7 +5,7 @@ import IntlProvider from "react-intl/src/components/provider";
 import { FormattedNumber } from "react-intl";
 import { ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { UseCart } from "@/cases/cart/hooks/use-cart";
+import { useCart } from "@/cases/cart/hooks/use-cart";
 
 type ProductDetailProps = {
     product: ProductDTO,
@@ -14,7 +14,7 @@ export function ProductDetail({
     product
 }: ProductDetailProps) {
 
-    const {addProduct} = UseCart()
+    const {addProduct} = useCart()
     const bucketBaseURL = import.meta.env.VITE_BUCKET_URL;
     const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
 

@@ -1,11 +1,11 @@
 import { CartContent } from "@/cases/cart/components/cart-content";
 import { CartEmpty } from "@/cases/cart/components/cart-empty";
 import { CartContext } from "@/cases/cart/contexts/cart-context";
-import { UseCart } from "@/cases/cart/hooks/use-cart";
+import { useCart } from "@/cases/cart/hooks/use-cart";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 export function CartPage(){
-    const {cart} = UseCart();
+    const {cart} = useCart();
     return(
         <div className="p-4">
             <Breadcrumb>
