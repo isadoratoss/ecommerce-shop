@@ -3,7 +3,7 @@ import { ProductListPage } from "./pages/product-list-page"
 import { ProductDetail } from "./cases/products/components/product-detail"
 import { ProductDetailPage } from "./pages/product-detail.page"
 import { CartPage } from "./pages/cart-page"
-import { SignUpPage } from "./pages/signin-page"
+import { SignUpPage } from "./pages/signup-page"
 import { SignInPage } from "./pages/signin-page"
 
 

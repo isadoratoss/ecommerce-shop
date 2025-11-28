@@ -20,14 +20,13 @@ export function CartContent() {
                         {cart.items.map((item, index) => (
                             <Item key={index} variant="muted" role="listitem" asChild>
                                 <div>
-                                    <ItemMedia variant="imagem">
+                                    <ItemMedia variant="image">
                                         {item.product.photos?.length && (
                                             <img
-                                                src={'${bucketBaseURL}${item.product.photos[0].path}'}
+                                                src={`${bucketBaseURL}${item.product.photos[0].path}`}
                                                 className="w-8 h-8 object-cover"
                                             />
                                         )}
-
                                     </ItemMedia>
                                     <ItemContent>
                                         <ItemTitle className="line-clamp-1">
@@ -38,34 +37,34 @@ export function CartContent() {
                                         </ItemDescription>
                                         <ItemContent className="flex-none text-cover">
                                             <ItemTitle>
-                                            <div className="flex flex-row gap-4">
-                                                <div>
-                                                    <QuantityInput initialQuantity={item.quantity} />
-                                                </div>
-                                                <div className="flex flex-col">
-                                                <p className="font-semibold flex justify-end gap-1.5">
-                                                    <IntlProvider locale="pt-BR">
-                                                        <FormattedNumber value={item.product.price * 0.9}
-                                                            style="currency" currency="BRL" />
-                                                    </IntlProvider>
-                                                </p>
-                                            </div>
-                                            <Tooltip>
-                                                <TooltipTrigger asChild>
-                                                    <Button size="icon" variant="ghost" onClick={() => removeProductCart(item.product.id!)}
-                                                    >
-                                                        <Trash2 className="text-red-600"/>
-                                                    </Button>
-                                                </TooltipTrigger>
-                                                <TooltipContent>
-                                                    <p>Remover esse item do carrinho</p>
-                                                </TooltipContent>
-                                                
-                                            </Tooltip>
+                                                <div className="flex flex-row gap-4">
+                                                    <div>
+                                                        <QuantityInput initialQuantity={item.quantity} />
+                                                    </div>
+                                                    <div className="flex flex-col">
+                                                        <p className="font-semibold flex justify-end gap-1.5">
+                                                            <IntlProvider locale="pt-BR">
+                                                                <FormattedNumber value={item.product.price * 0.9}
+                                                                    style="currency" currency="BRL" />
+                                                            </IntlProvider>
+                                                        </p>
+                                                    </div>
+                                                    <Tooltip>
+                                                        <TooltipTrigger asChild>
+                                                            <Button size="icon" variant="ghost" onClick={() => removeProductCart(item.product.id!)}
+                                                            >
+                                                                <Trash2 className="text-red-600" />
+                                                            </Button>
+                                                        </TooltipTrigger>
+                                                        <TooltipContent>
+                                                            <p>Remover esse item do carrinho</p>
+                                                        </TooltipContent>
 
-                                            </div>
-                                        </ItemTitle>
-                                            
+                                                    </Tooltip>
+
+                                                </div>
+                                            </ItemTitle>
+
 
                                         </ItemContent>
                                     </ItemContent>
@@ -83,20 +82,20 @@ export function CartContent() {
                     </CardHeader>
                     <CardContent>
                         <InputGroup>
-                        <InputGroupInput placeholder="CEP" />
-                        <InputGroupAddon>
-                            <MapPin className="text-green-600" />
-                        </InputGroupAddon>
-                        <InputGroupAddon>
-                            <Button variant="ghost" size="sm"
-                                className="-mr-1 hover:bg-transparent hover:text-green-700" >
-                                    Calcular 
+                            <InputGroupInput placeholder="CEP" />
+                            <InputGroupAddon>
+                                <MapPin className="text-green-600" />
+                            </InputGroupAddon>
+                            <InputGroupAddon>
+                                <Button variant="ghost" size="sm"
+                                    className="-mr-1 hover:bg-transparent hover:text-green-700" >
+                                    Calcular
                                 </Button>
-                        </InputGroupAddon>
+                            </InputGroupAddon>
                         </InputGroup>
                     </CardContent>
                 </Card>
-               <Card>
+                <Card>
                     <CardHeader>
                         <CardTitle className="text-sm">Total do pedido:</CardTitle>
                     </CardHeader>
@@ -129,7 +128,7 @@ export function CartContent() {
                                         <div className="flex flex-col">
                                             <p className="text-xs font-semibold flex justify-end gap-1.5">
                                                 <IntlProvider locale="pt-BR">
-                                                    <FormattedNumber value={500*0.9} style="currency" currency="BRL" /> no PIX
+                                                    <FormattedNumber value={500 * 0.9} style="currency" currency="BRL" /> no PIX
                                                 </IntlProvider>
                                             </p>
                                             <p className="text-xs font-semibold flex justify-end gap-1.5">
@@ -142,14 +141,14 @@ export function CartContent() {
                                 </ItemContent>
                             </Item>
                         </ItemGroup>
-                        
+
                     </CardContent>
                     <CardFooter>
                         <Button
                             className="w-full bg-green-600 hover:bg-green-700 text-white"
-                            >
-                                Finalizar o Pedido 
-                            </Button>
+                        >
+                            Finalizar o Pedido
+                        </Button>
                     </CardFooter>
                 </Card>
             </div>

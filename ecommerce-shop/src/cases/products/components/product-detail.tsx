@@ -39,7 +39,7 @@ export function ProductDetail({
                     </div>
                     {photos && photos.length > 1 && (
                         <ul className="mt-4 max-w-md w-full overflow-x-auto flex gap-2 pb-2">
-                            {photos.map((photo) => (
+                            {photos.map((photo, index) => (
                                 <li key={photo.id}>
                                     <Button
                                         variant="ghost"
