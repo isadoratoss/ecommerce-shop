@@ -3,6 +3,8 @@ import { ProductListPage } from "./pages/product-list-page"
 import { ProductDetail } from "./cases/products/components/product-detail"
 import { ProductDetailPage } from "./pages/product-detail.page"
 import { CartPage } from "./pages/cart-page"
+import { SignUpPage } from "./pages/signin-page"
+import { SignInPage } from "./pages/signin-page"
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
             <Route path="/" element={<ProductListPage />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
           </Routes>
           
         </div>
