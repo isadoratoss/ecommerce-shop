@@ -1,7 +1,7 @@
 import { CategoryMenu } from "@/cases/categories/components/category-menu";
 import { ProductCard } from "@/cases/products/components/product-card";
 import { useProducts } from "@/cases/products/hooks/use-product";
-import { Link } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
 export function ProductListPage() {

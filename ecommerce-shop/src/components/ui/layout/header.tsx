@@ -1,12 +1,21 @@
-import { UseCart } from "@/cases/cart/hooks/use-cart"
-import { Badge, ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useCart } from "@/cases/cart/hooks/use-cart"
+import { Badge, ShoppingCart, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../button";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/cases/auth/hooks/use-auth";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function Header() {
+    const navigate = useNavigate();
     
-    const { cart } = UseCart();
+    const { cart } = useCart();
+    const {user, signOut} = useAuth();
+
+    function handleSignOut(){
+        signOut();
+        navigate('/');
+    }
 
     return(
         <header className="w-full border-b bg-white">
@@ -20,6 +29,13 @@ export function Header() {
                 </div>
 
                 <div className="flex items-center gap-1">
+                    {!user && (
+                        <Link to="/signin">
+                            <Button variant="link">
+                                Entrar
+                            </Button>
+                        </Link>
+                    )}
                     <Link to="/cart" className="relative" >
                     <Button
                     variant="ghost"
@@ -42,6 +58,29 @@ export function Header() {
                         )}
                     </Button>
                     </Link>
+
+                    {user? $$ (
+                        <DropdownMenu>
+                            <DropdownMenuTrigger as asChild>
+                                <Button variant="ghost" size="icon"
+                                className="hover:text-green-700"
+                                >
+                                   <User /> 
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                <DropdownMenuLabel>
+                                    {user?.name}
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem
+                                onClick={handleSignOut}
+                                >
+                                    Logout 
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    )}
                 </div>
             </div>
         </header>
